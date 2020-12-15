@@ -1,0 +1,18 @@
+
+'MDP & RL 구현'에서의 Peeking Blackjack을 구현하세요.
+
+Peeking Blackjack이란 다음 카드를 엿볼 수 있는 Blackjack 입니다.
+
+blackjack.py의 BlackjackMDP 클래스의 succAndProbReward 멤버 함수를 구현하세요.
+    - _FILL_IN_을 지우고 구현하세요.
+    - _FILL_IN_과 __main__ 이외의 코드는 수정하지 마세요.
+    - python blackjack.py로 간단한 테스트를 수행할 수 있습니다.
+
+blackjack.py의 파일명을 [학번]_blackjack.py로 변경 후 해당 파일(e.g. s_0000_blackjack.py)만 LMS에 제출하세요.
+
+주의사항
+    - 부정행위 적발 시 감점될 수 있습니다.
+    - _FILL_IN_과 __main__ 이외의 코드 수정 시 감점될 수 있습니다.
+    - 잘못된 파일명 혹은 s_0000_blackjack.py 이외의 파일 제출 시 감점될 수 있습니다.
+
+과제에 대한 질문은 LMS 질의응답을 이용해주세요 :)

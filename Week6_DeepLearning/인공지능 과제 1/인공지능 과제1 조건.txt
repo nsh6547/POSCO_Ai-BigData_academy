@@ -1,0 +1,16 @@
+'AI Search Algorithm 구현'에서의 Joint Task를 구현하세요.
+
+Joint Task란 띄어쓰기가 없고 모음이 없는 문자열에 띄어쓰기와 모음을 삽입해 자연스러운 문장을 생성하는 작업입니다.
+    - e.g. "mgnllthppl" => "imagine all the people"
+
+joint_task.py의 JointSegmentationInsertionProblem 클래스의 succ_and_cost 멤버 함수를 구현하세요.
+    - raise NotImplementedError('not implemented')를 지우고 구현하세요.
+    - succ_and_cost와 __main__ 이외의 코드는 수정하지 마세요.
+    - python joint_task.py로 간단한 테스트를 수행할 수 있습니다.
+
+joint_task.py의 파일명을 [학번]_joint_task.py로 변경 후 해당 파일(e.g. s_0000_joint_task.py)만 LMS에 제출하세요.
+
+주의사항
+    - 부정행위 적발 시 감점될 수 있습니다.
+    - succ_and_cost와 __main__ 이외의 코드 수정 시 감점될 수 있습니다.
+    - 잘못된 파일명 혹은 s_0000_joint_task.py 이외의 파일 제출 시 감점될 수 있습니다.
