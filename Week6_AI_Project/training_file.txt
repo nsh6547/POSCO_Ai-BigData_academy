@@ -1,0 +1,8 @@
+/home/piai/Desktop/server_crop_picture/training/놀람-checkpoint.jpg,.ipynb_checkpoints
+/home/piai/Desktop/server_crop_picture/training/썩소-checkpoint.jpg,.ipynb_checkpoints
+/home/piai/Desktop/server_crop_picture/training/놀람-checkpoint.jpg,.ipynb_checkpoints
+/home/piai/Desktop/server_crop_picture/training/행복-checkpoint.jpg,.ipynb_checkpoints
+/home/piai/Desktop/server_crop_picture/training/우울-checkpoint.jpg,.ipynb_checkpoints
+/home/piai/Desktop/server_crop_picture/training/중립-checkpoint.jpg,.ipynb_checkpoints
+/home/piai/Desktop/server_crop_picture/training/수환-checkpoint.jpg,.ipynb_checkpoints
+/home/piai/Desktop/server_crop_picture/training/행복띠-checkpoint.jpg,.ipynb_checkpoints

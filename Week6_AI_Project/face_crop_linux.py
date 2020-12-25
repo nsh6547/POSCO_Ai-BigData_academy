@@ -8,7 +8,29 @@ from PIL import ImageDraw
 from genericpath import isfile
 import os
 from oauth2client.service_account import ServiceAccountCredentials
+import tensorflow as tf
+import matplotlib.pyplot as plt
+from keras.models import load_model
  
+ 
+gpus = tf.config.experimental.list_physical_devices('GPU')
+if gpus:
+  try:
+    # Currently, memory growth needs to be the same across GPUs
+    for gpu in gpus:
+      tf.config.experimental.set_memory_growth(gpu, True)
+    logical_gpus = tf.config.experimental.list_logical_devices('GPU')
+    print(len(gpus), "Physical GPUs,", len(logical_gpus), "Logical GPUs")
+  except RuntimeError as e:
+    # Memory growth must be set before GPUs have been initialized
+    print(e)
+
+import keras
+import cv2
+import numpy as np
+import os
+import math
+
  
 NUM_THREADS = 10
 MAX_RESULTS = 1
@@ -20,7 +42,7 @@ class FaceDetector():
         #credentials = GoogleCredentials.get_application_default()
         scopes = ['https://www.googleapis.com/auth/cloud-platform']
         credentials = ServiceAccountCredentials.from_json_keyfile_name(
-                        '/home/piai/Desktop/sunho-299311-f8d55ae6b161.json', scopes=scopes)
+                        './sunho-299311-f8d55ae6b161.json', scopes=scopes)
         self.service = discovery.build('vision', 'v1', credentials=credentials)
         #print ("Getting vision API client : %s" ,self.service)
  
@@ -180,16 +202,38 @@ class FaceDetector():
         #loop and run face crop
  
          
-def main(argv):
-    srcdir= argv[1]
-    desdir = argv[2]
+def main():
+    srcdir= './img'
+    desdir = './img'
     detector = FaceDetector()
  
     detector.crop_faces_rootdir(srcdir, desdir)
+    
+    model = load_model('fer2013plus_model.h5')
+    gray = cv2.imread('./img/emo_pic.jpg',cv2.IMREAD_GRAYSCALE)
+    img = cv2.resize(gray, (64,64))
+    img = img.reshape((1,64,64,1))
+    pred_y = model.predict(img)
+    if pred_y[0][0]==max(pred_y[0]):
+        print("{'emotion':'중립'}")
+    elif pred_y[0][1]==max(pred_y[0]):
+        print("{'emotion':'행복'}")
+    elif pred_y[0][2]==max(pred_y[0]):
+        print("{'emotion':'놀라움'}")
+    elif pred_y[0][3]==max(pred_y[0]):
+        print("{'emotion':'슬픔'}")
+    elif pred_y[0][4]==max(pred_y[0]):
+        print("{'emotion':'분노'}")
+    elif pred_y[0][5]==max(pred_y[0]):
+        print("{'emotion':'혐오'}")
+    elif pred_y[0][6]==max(pred_y[0]):
+        print("{'emotion':'두려움'}")
+    elif pred_y[0][7]==max(pred_y[0]):
+        print("{'emotion':'경멸'}")
     #detector.crop_faces_dir(inputfile,outputfile)
     #rect = detector.detect_face(inputfile)
     #detector.rect_image(inputfile, rect, outputfile)
     #detector.crop_face(inputfile, rect, outputfile)
      
 if __name__ == "__main__":
-    main(sys.argv)
+    main()
